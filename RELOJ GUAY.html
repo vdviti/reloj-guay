@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Reloj</title>
+		<meta charset ="UTF-8">
+		<style type="text/css">					
+			#contenedor_titulo{
+					color:silver;
+					font-size:50px;
+				}
+			#contenedor_hora{
+					text-align: center;
+					width: auto;
+					height:auto;
+					color:orange;
+					border:solid #00F600 20px;
+					margin: 40px;
+					padding:70px;
+					font-size:150px;	
+					font-family:Impact;
+				}
+			body , #contenedor_reloj, #contenedor_titulo, #contenedor_hora{
+				background-color: #00FF00;
+				text-align: center;
+			}
+		</style>
+		<script>
+			function anadirCero(i) {
+				if (i < 10) {
+					i = "0" + i;
+				}
+				return i;
+			}
+			function f_hora(){
+				var hoy = new Date();
+				var h = anadirCero(hoy.getHours());
+				var m = anadirCero(hoy.getMinutes());
+				var s = anadirCero(hoy.getSeconds());
+				document.getElementById('contenedor_hora').innerHTML = h+":"+m+":"+s;
+				setInterval ( f_hora , 1000);
+			}
+		</script>
+	</head>
+	<body onload=f_hora() >
+		<div id="contenedor_reloj">	
+			<h1 id="contenedor_titulo"> RELOJ MOLON</h1>
+			<button id="contenedor_hora" onclick="f_hora()">actualizar la hora</button>
+		</div>
+	</body>
+</html>
